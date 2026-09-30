@@ -1,0 +1,23 @@
+html { 
+    scroll behavior: smooth;
+    background-color: #d0f0c0;
+}
+
+body {
+    background-color: white;
+    padding: 5px 5px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+nav {
+    align-items: center;
+    display:flex;
+    background-color: #e9ffdb;
+    margin: 12px;
+}
+
+nav li { 
+    display: inline;
+    font-family:'Courier New', Courier, monospace;
+
+}
