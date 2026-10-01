@@ -1,23 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">Experience</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <main>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saba Sohail</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <button class="nav-btn active" data-section="home">Home</button>
+        <button class="nav-btn" data-section="about">Experience</button>
+        <button class="nav-btn" data-section="projects">Projects</button>
+        <button class="nav-btn" data-section="contact">Contact</button>
+    </nav>
+
+    <main class="main-container">
+        <!-- Home Section -->
+        <section id="home" class="content-section active">
             <h1>Saba Sohail</h1>
-            <h2>.</h2>
-        </main>
-    </body>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="about" class="content-section">
+            <h1>Experience</h1>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="content-section">
+            <h1>Projects</h1>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="content-section">
+            <h1>Contact</h1>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
 </html>
