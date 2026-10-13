@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saba Sohail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="navbar">
         <button class="nav-btn active" data-section="home">Home</button>
-        <button class="nav-btn" data-section="about">Experience</button>
+        <button class="nav-btn" data-section="experience">Experience</button>
         <button class="nav-btn" data-section="projects">Projects</button>
         <button class="nav-btn" data-section="contact">Contact</button>
     </nav>
@@ -17,22 +20,95 @@
     <main class="main-container">
         <!-- Home Section -->
         <section id="home" class="content-section active">
-            <h1>Saba Sohail</h1>
+            <div class="header-container">
+                <h1>Saba Sohail</h1>
+                <h3>
+                    She/Her · Data Science & UI/UX Enthusiast
+                </h3>
+            </div>
+            <p> Hello, I'm Saba, welcome to my website! I am a computer science and applied mathematics student at
+                Stony Brook University, with a passion for <strong>data science</strong> and <strong>UI/UX development</strong>. I am currently open
+                to full time opportunities that can leverage my technical skills and creativity. 
+            </p>
+            <p> My interests in data science and UI/UX development stems from my hobby of creating digital art and media.
+                I have always loved expressing myself through digital mediums, which has led me to enjoy storytelling
+                through data and designing user interfaces. 
+            </p>
+            <p> Details about my experience, projects, and contact information can be found in
+                the sections above. Please feel free to reach out to me!
+            </p>
         </section>
 
         <!-- Experience Section -->
-        <section id="about" class="content-section">
+        <section id="experience" class="content-section">
             <h1>Experience</h1>
+            <h3>Skills</h3>
+            <p class="skills"> <strong>Languages:</strong> Java, Python, R, C/C++, TypeScript, JavaScript, SQL <br>
+             <strong>Tools:</strong> Git, Google Cloud, Firebase, Microsoft Azure, MongoDB <br>
+             <strong>Software:</strong> Tableau, Figma, Canva, Blender, Adobe Creative Suite </p>
+            <h3>Work Experience</h3>
+            <div class="timeline">
+
+                <article class="job">
+                    <div class="job-header">
+                        <span class="job-title">Supply Chain Analytics Intern</span>
+                        <span class="job-dates">May - Aug. 2026</span>
+                    </div>
+                    <span class="job-meta">Zebra Technologies</span>
+                    <ul class="job-points">
+                        <li>Built an AI agent that helps manufacturers and engineers with documentation, saving <strong>~$13,000</strong></li>
+                        <li>Extracted existing manufacturing data for RAG implementation</li>
+                    </ul>
+                    <div class="job-tags">
+                        <span class="tag">AI Agents</span>
+                        <span class="tag">Data Processing</span>
+                        <span class="tag">Google Cloud Platform</span>
+                        <span class="tag">Lean Six Sigma Yellow Belt</span>
+                    </div>
+                </article>
+
+                <article class="job">
+                    <div class="job-header">
+                        <span class="job-title">AI/ML Intern</span>
+                        <span class="job-dates">May - Aug. 2025</span>
+                    </div>
+                    <span class="job-meta">SoniaGenix</span>
+                    <ul class="job-points">
+                        <li>Implemented a multi-modal machine learning pipeline, combining image classification with a large language model</li>
+                        <li>Applied targeted augmentation and fine tuning to improve model performance</li>
+                    </ul>
+                    <div class="job-tags">
+                        <span class="tag">Image Classification</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Data Processing</span>
+                    </div>
+                </article>
+
+                
+            </div>
         </section>
 
         <!-- Projects Section -->
         <section id="projects" class="content-section">
-            <h1>Projects</h1>
+                <h1>Projects</h1>
+            <ol>
+                <li>
+                    <p> <strong>Pathly</strong> (Aug. 2026 - Present) <br>
+                        <span class="tools">
+                            <img src="icons/firebase.svg" alt="Firebase" title="Firebase">
+                            <img src="icons/googlecloud.svg" alt="Google Cloud" title="Google Cloud">
+                        </span>
+                        <p> Pathly is a mobile application designed to provide public transportation information 
+                        and route planning. My role in this project includes <strong>database implementation, UX design, and backend development.</strong> </p>
+                </li>
+            </ol>
         </section>
 
         <!-- Contact Section -->
         <section id="contact" class="content-section">
             <h1>Contact</h1>
+            <p> Email: sohailsaba1@outlook.com </p>
+            <p> LinkedIn: <a href="https://www.linkedin.com/in/saba-s-a8b19627a/" target="_blank" rel="noopener noreferrer">linkedin.com/in/saba-s-a8b19627a/</a> </p>
         </section>
     </main>
 

@@ -5,17 +5,30 @@
 }
 
 html {
-    scroll-behavior: smooth;
     background-color: #d0f0c0;
 }
 
 body {
-    background-color: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #d0f0c0;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
     display: flex;
     flex-direction: column;
     height: 100vh;
     overflow: hidden;
+    padding: 12px;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar,
+.main-container {
+    width: 100%;
+    max-width: 640px;
+}
+
+strong {
+    color: #56802a;
 }
 
 /* Navigation Bar */
@@ -25,7 +38,8 @@ body {
     padding: 12px;
     gap: 10px;
     flex-wrap: wrap;
-    border-bottom: 2px solid #c0e0a0;
+    border: 2px solid #c0e0a0;
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -40,6 +54,7 @@ body {
     border-radius: 4px;
     transition: all 0.3s ease;
     font-weight: 500;
+    flex: 1;
 }
 
 .nav-btn:hover {
@@ -53,26 +68,105 @@ body {
     box-shadow: 0 2px 8px rgba(124, 179, 66, 0.3);
 }
 
+.projects-navbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.proj-btn:active {
+    transform: translateY(1px);
+}
+
 /* Main Container */
 .main-container {
-    flex: 1;
+    min-height: 0;
+    transition: height 0.4s ease;
     overflow-y: auto;
     overflow-x: hidden;
+    background-color: white;
+    border: 2px solid #c0e0a0;
+    border-radius: 8px;
+    padding: 20px;
+    display: grid;
+    align-items: start;
+}
+
+/* Hide scrollbars while the height animates */
+.main-container.resizing {
+    overflow-y: hidden;
 }
 
 /* Content Sections */
 .content-section {
+    grid-area: 1 / 1;
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    padding: 20px;
     pointer-events: none;
+    /* Collapse hidden sections once they finish fading out so they don't add height */
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, transform 0.4s ease, max-height 0s linear 0.4s;
 }
 
 .content-section.active {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+    max-height: 100000px;
+    overflow: visible;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 16px;
+}
+
+.content-section .header-container h1 {
+    font-family: 'Caveat', cursive;
+    font-size: 44px;
+    margin: 0;
+    line-height: 1;
+    text-box: trim-both cap alphabetic;
+}
+
+.header-container h3 {
+    color: #7cb342;
+    font-size: 16px;
+    margin: 0;
+    font-weight: normal;
+    line-height: 1;
+    text-box: trim-both cap alphabetic;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.github-link {
+    display: inline-flex;
+    color: #333;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.github-link:hover {
+    color: #7cb342;
+    transform: translateY(-2px);
+}
+
+.github-link svg {
+    width: 1.4em;
+    height: 1.4em;
+    fill: currentColor;
+    overflow: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .github-link {
+        transition: none;
+    }
 }
 
 .content-section h1 {
@@ -83,14 +177,148 @@ body {
 
 .content-section p {
     color: #666;
-    line-height: 1.6;
+    line-height: 1.7;
     margin-bottom: 12px;
+}
+
+.content-section > h3 {
+    color: #4d4d4d;
+    font-size: 18px;
+    margin: 28px 0 10px;
+}
+
+.content-section > h1 + h3 {
+    margin-top: 0;
+}
+
+.skills {
+    line-height: 2;
+}
+
+/* Experience timeline */
+.timeline {
+    position: relative;
+    padding: 4px 8px 0 24px;
+    max-height: 320px;
+    overflow-y: auto;
+    /* Line is a background so it scrolls with the cards and spans all of them */
+    background: linear-gradient(#c0e0a0, #c0e0a0) 7px 0 / 2px 100% no-repeat;
+    background-attachment: local;
+    scrollbar-width: thin;
+    scrollbar-color: #c0e0a0 transparent;
+}
+
+.job {
+    position: relative;
+    background-color: #f4fbef;
+    border: 1px solid #dcefcc;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+}
+
+.job::before {
+    content: "";
+    position: absolute;
+    /* Centered on the timeline line (adjusted by eye) */
+    left: -24px;
+    top: 18px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #7cb342;
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px #c0e0a0;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.job-title {
+    color: #4d4d4d;
+    font-weight: 600;
+}
+
+.job-dates {
+    color: #888;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.job-meta {
+    display: block;
+    color: #888;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+.content-section .job-points {
+    margin: 10px 0 12px;
+    padding-left: 1.2em;
+}
+
+.content-section .job-points li {
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+
+.job-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag {
+    background-color: white;
+    border: 1px solid #c0e0a0;
+    color: #56802a;
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 999px;
+}
+
+.badge {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #666;
+}
+
+.content-section ol {
+    padding-left: 1.4em;
+}
+
+.content-section li {
+    color: #666;
+    margin-bottom: 16px;
+}
+
+.tools {
+    display: inline-flex;
+    gap: 6px;
+    margin-left: 6px;
+    vertical-align: -0.2em;
+}
+
+.tools img {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.content-section li p {
+    margin: 8px 0 0;
 }
 
 /* Mobile Responsive Design */
 @media (max-width: 768px) {
     body {
-        height: 100vh;
+        padding: 10px;
+        gap: 10px;
     }
 
     .navbar {
@@ -101,16 +329,11 @@ body {
     .nav-btn {
         padding: 8px 12px;
         font-size: 14px;
-        flex: 1;
         min-width: 70px;
         text-align: center;
     }
 
     .main-container {
-        padding: 16px;
-    }
-
-    .content-section {
         padding: 16px;
     }
 
@@ -122,9 +345,18 @@ body {
     .content-section p {
         font-size: 14px;
     }
+
+    .content-section .header-container h1 {
+        font-size: 36px;
+    }
 }
 
 @media (max-width: 480px) {
+    body {
+        padding: 8px;
+        gap: 8px;
+    }
+
     .nav-btn {
         padding: 6px 8px;
         font-size: 12px;
@@ -132,10 +364,6 @@ body {
     }
 
     .main-container {
-        padding: 12px;
-    }
-
-    .content-section {
         padding: 12px;
     }
 
