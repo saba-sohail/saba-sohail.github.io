@@ -22,11 +22,9 @@
         <section id="home" class="content-section active">
             <div class="header-container">
                 <h1>Saba Sohail</h1>
-                <h3>
-                    She/Her · Data Science & UI/UX Enthusiast
-                </h3>
+                <h3>She/Her · Data Science & UI/UX Enthusiast</h3>
             </div>
-            <p> Hello, I'm Saba, welcome to my website! I am a computer science and applied mathematics student at
+            <p> Hello, I'm Saba, welcome to my website! I am a Computer Science and Applied Mathematics student at
                 Stony Brook University, with a passion for <strong>data science</strong> and <strong>UI/UX development</strong>. I am currently open
                 to full time opportunities that can leverage my technical skills and creativity. 
             </p>
@@ -42,11 +40,7 @@
         <!-- Experience Section -->
         <section id="experience" class="content-section">
             <h1>Experience</h1>
-            <h3>Skills</h3>
-            <p class="skills"> <strong>Languages:</strong> Java, Python, R, C/C++, TypeScript, JavaScript, SQL <br>
-             <strong>Tools:</strong> Git, Google Cloud, Firebase, Microsoft Azure, MongoDB <br>
-             <strong>Software:</strong> Tableau, Figma, Canva, Blender, Adobe Creative Suite </p>
-            <h3>Work Experience</h3>
+            <h3>Work</h3>
             <div class="timeline">
 
                 <article class="job">
@@ -56,8 +50,8 @@
                     </div>
                     <span class="job-meta">Zebra Technologies</span>
                     <ul class="job-points">
-                        <li>Built an AI agent that helps manufacturers and engineers with documentation, saving <strong>~$13,000</strong></li>
-                        <li>Extracted existing manufacturing data for RAG implementation</li>
+                        <li>Built an AI documentation agent for manufacturers and engineers, saving <strong>~$13,000</strong></li>
+                        <li>Extracted manufacturing data to power RAG retrieval</li>
                     </ul>
                     <div class="job-tags">
                         <span class="tag">AI Agents</span>
@@ -74,8 +68,8 @@
                     </div>
                     <span class="job-meta">SoniaGenix</span>
                     <ul class="job-points">
-                        <li>Implemented a multi-modal machine learning pipeline, combining image classification with a large language model</li>
-                        <li>Applied targeted augmentation and fine tuning to improve model performance</li>
+                        <li>Implemented a multi-modal ML pipeline combining image classification with an LLM</li>
+                        <li>Improved model performance with targeted augmentation and fine-tuning</li>
                     </ul>
                     <div class="job-tags">
                         <span class="tag">Image Classification</span>
@@ -84,24 +78,165 @@
                     </div>
                 </article>
 
-                
+
             </div>
+            <h3>Skills</h3>
+            <p class="skills"> <strong>Languages:</strong> Java, Python, R, C/C++, TypeScript, JavaScript, SQL <br>
+             <strong>Tools:</strong> Git, Google Cloud, Firebase, Microsoft Azure, MongoDB <br>
+             <strong>Software:</strong> Tableau, Figma, Canva, Blender, Adobe Creative Suite </p>
         </section>
 
         <!-- Projects Section -->
         <section id="projects" class="content-section">
                 <h1>Projects</h1>
-            <ol>
-                <li>
-                    <p> <strong>Pathly</strong> (Aug. 2026 - Present) <br>
-                        <span class="tools">
-                            <img src="icons/firebase.svg" alt="Firebase" title="Firebase">
-                            <img src="icons/googlecloud.svg" alt="Google Cloud" title="Google Cloud">
-                        </span>
-                        <p> Pathly is a mobile application designed to provide public transportation information 
-                        and route planning. My role in this project includes <strong>database implementation, UX design, and backend development.</strong> </p>
-                </li>
-            </ol>
+            <div class="projects-navbar"></div>
+            <div class="project-list">
+                <details class="job project">
+                    <summary>
+                        <span class="category">SWE</span>
+                        <div class="job-header">
+                            <span class="job-title">Pathly</span>
+                            <span class="job-dates">Aug. 2026 - Present</span>
+                        </div>
+                        <div class="job-tags">
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Google Cloud Platform</span>
+                            <span class="tag">UX Design</span>
+                        </div>
+                    </summary>
+                    <ul class="job-points">
+                        <li>Transit info and route-planning app for NYC and Long Island riders</li>
+                        <li>Handled <strong>database</strong>, <strong>UX design</strong>, and <strong>backend</strong> development</li>
+                    </ul>
+                    <a class="project-link" href="https://github.com/Transit-Clone/Pathly" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+                </details>
+
+                <details class="job project">
+                    <summary>
+                        <span class="category">Data</span>
+                        <div class="job-header">
+                            <span class="job-title">Drug Overdose Trends Among U.S. Women</span>
+                            <span class="job-dates">Mar. 2026 - May 2026</span>
+                        </div>
+                        <div class="job-tags">
+                            <span class="tag">Tableau</span>
+                            <span class="tag">Statistical Analysis</span>
+                            <span class="tag">Data Visualization</span>
+                        </div>
+                    </summary>
+                    <ul class="job-points">
+                        <li>Analyzed overdose death trends among U.S. women using <strong>statistics</strong> and <strong>Tableau</strong></li>
+                        <li>Framed findings around data gaps to inform interventions without overstating them</li>
+                    </ul>
+                    <a class="project-link" href="files/drug-overdose-trends.pdf" target="_blank" rel="noopener noreferrer">View presentation →</a>
+                </details>
+
+                <details class="job project">
+                    <summary>
+                        <span class="category">Data</span>
+                        <div class="job-header">
+                            <span class="job-title">Assessing Trait Interdependence in Penguins</span>
+                            <span class="job-dates">Oct. 2025 - Dec. 2025</span>
+                        </div>
+                        <div class="job-tags">
+                            <span class="tag">R</span>
+                            <span class="tag">Linear Regression</span>
+                            <span class="tag">ANOVA</span>
+                            <span class="tag">Data Cleaning</span>
+                        </div>
+                    </summary>
+                    <ul class="job-points">
+                        <li>Group project predicting penguin bill length from other physical traits in <strong>R</strong></li>
+                        <li>Used regression and nested ANOVA: flipper length was a strong predictor (<strong>r = 0.65</strong>), body mass added little</li>
+                    </ul>
+                    <a class="project-link" href="files/penguin-trait-analysis.pdf" target="_blank" rel="noopener noreferrer">View report →</a>
+                </details>
+
+                <details class="job project">
+                    <summary>
+                        <span class="category">ML</span>
+                        <div class="job-header">
+                            <span class="job-title">Equitable AI for Dermatology</span>
+                            <span class="job-dates">Jan. 2025 - Mar. 2025</span>
+                        </div>
+                        <div class="job-tags">
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">Keras</span>
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">Computer Vision</span>
+                        </div>
+                    </summary>
+                    <ul class="job-points">
+                        <li>Fine-tuned CNNs in TensorFlow/Keras to classify <strong>16 skin conditions</strong> across diverse skin tones</li>
+                        <li>Reduced overfitting and bias with augmentation, early stopping, and dropout, boosting accuracy <strong>40%</strong></li>
+                    </ul>
+                </details>
+
+                <details class="job project">
+                    <summary>
+                        <span class="category">ML</span>
+                        <div class="job-header">
+                            <span class="job-title">Nassau County Housing Price Prediction</span>
+                            <span class="job-dates">Apr. 2025 - May 2025</span>
+                        </div>
+                        <div class="job-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Logistic Regression</span>
+                            <span class="tag">Decision Tree</span>
+                            <span class="tag">Random Forest</span>
+                            <span class="tag">KNN</span>
+                            <span class="tag">SQLite</span>
+                        </div>
+                    </summary>
+                    <ul class="job-points">
+                        <li>Built a <strong>SQLite</strong> pipeline to clean and store <strong>1,565</strong> scraped Zillow listings</li>
+                        <li>Tuned four classifiers to predict price quartiles, with Random Forest reaching <strong>71%</strong> accuracy after removing a data-leaking feature</li>
+                    </ul>
+                    <a class="project-link" href="https://github.com/saba-sohail/nassau-county-housing/blob/main/analysis1.ipynb" target="_blank" rel="noopener noreferrer">View analysis →</a>
+                </details>
+
+                <details class="job project">
+                    <summary>
+                        <span class="category">SWE</span>
+                        <div class="job-header">
+                            <span class="job-title">Phreddit</span>
+                            <span class="job-dates">Oct. 2024 - Dec. 2024</span>
+                        </div>
+                        <div class="job-tags">
+                            <span class="tag">React.js</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Express.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                    </summary>
+                    <ul class="job-points">
+                        <li>Built a Reddit-style <strong>web app</strong> for posting and discussing content in communities</li>
+                        <li>Created a responsive <strong>React.js</strong> frontend with a <strong>Node.js</strong>/<strong>Express.js</strong> backend</li>
+                    </ul>
+                </details>
+
+                <details class="job project">
+                    <summary>
+                        <span class="category">SWE</span>
+                        <div class="job-header">
+                            <span class="job-title">NCC Nest App</span>
+                            <span class="job-dates">Nov. 2023 - Dec. 2023</span>
+                        </div>
+                        <div class="job-tags">
+                            <span class="tag">Android Studio</span>
+                            <span class="tag">Java</span>
+                            <span class="tag">SQLite</span>
+                            <span class="tag">XML</span>
+                            <span class="tag">Open Source</span>
+                        </div>
+                    </summary>
+                    <ul class="job-points">
+                        <li>Contributed to LibreFoodPantry's <strong>open-source</strong> NEST app, designing an Android Studio (XML) interface to streamline guest check-in</li>
+                        <li>Built <strong>Java</strong> logic and <strong>SQLite</strong> storage for up to 100 guest records</li>
+                    </ul>
+                    <a class="project-link" href="https://gitlab.com/LibreFoodPantry/client-solutions/nest/NEST/-/merge_requests/453" target="_blank" rel="noopener noreferrer">View merge request →</a>
+                </details>
+            </div>
         </section>
 
         <!-- Contact Section -->

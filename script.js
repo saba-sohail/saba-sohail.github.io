@@ -48,3 +48,22 @@ document.querySelectorAll('.content-section').forEach(section => {
 });
 
 fitHeight();
+
+// Project filters: one button per category label, plus "All"
+const projectFilters = document.querySelector('.projects-navbar');
+const projects = document.querySelectorAll('.project');
+const categories = [...new Set([...projects].map(p => p.querySelector('.category').textContent.trim()))];
+
+['All', ...categories].forEach((category, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'proj-btn' + (i === 0 ? ' active' : '');
+    btn.textContent = category;
+    btn.addEventListener('click', () => {
+        projectFilters.querySelectorAll('.proj-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        projects.forEach(p => {
+            p.hidden = category !== 'All' && p.querySelector('.category').textContent.trim() !== category;
+        });
+    });
+    projectFilters.appendChild(btn);
+});

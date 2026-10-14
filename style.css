@@ -72,6 +72,29 @@ strong {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    margin-bottom: 14px;
+}
+
+.proj-btn {
+    padding: 4px 14px;
+    border: 1px solid #c0e0a0;
+    border-radius: 999px;
+    background-color: white;
+    color: #56802a;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.proj-btn:hover {
+    background-color: #f4fbef;
+}
+
+.proj-btn.active {
+    background-color: #7cb342;
+    border-color: #7cb342;
+    color: white;
 }
 
 .proj-btn:active {
@@ -121,8 +144,9 @@ strong {
 .header-container {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 22px;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .content-section .header-container h1 {
@@ -229,6 +253,82 @@ strong {
     background-color: #7cb342;
     border: 2px solid white;
     box-shadow: 0 0 0 2px #c0e0a0;
+}
+
+/* Projects reuse the job card, without the timeline dot */
+.project::before {
+    display: none;
+}
+
+/* Collapsible project cards: summary shows title + tags, click to reveal bullets */
+.project summary {
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+    padding-right: 24px;
+}
+
+.project summary::-webkit-details-marker {
+    display: none;
+}
+
+.project summary::after {
+    content: "";
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #7cb342;
+    border-bottom: 2px solid #7cb342;
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+}
+
+.project[open] summary::after {
+    top: 8px;
+    transform: rotate(-135deg);
+}
+
+.project summary .job-tags {
+    margin-top: 10px;
+}
+
+.project:hover {
+    border-color: #c0e0a0;
+}
+
+.content-section .project .job-points {
+    margin-bottom: 0;
+}
+
+.project-list .project {
+    margin-bottom: 12px;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #56802a;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid #c0e0a0;
+    transition: border-color 0.2s ease;
+}
+
+.project-link:hover {
+    border-color: #56802a;
+}
+
+.category {
+    display: block;
+    margin-bottom: 4px;
+    color: #7cb342;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .job-header {
@@ -369,5 +469,25 @@ strong {
 
     .content-section h1 {
         font-size: 20px;
+    }
+}
+
+/* Small phones: give the wrapped subtitle line spacing and keep nav labels apart */
+@media (max-width: 480px) {
+    .header-container h3 {
+        line-height: 1.35;
+        text-box: none;
+    }
+}
+
+@media (max-width: 380px) {
+    .navbar {
+        gap: 4px;
+    }
+
+    .nav-btn {
+        padding: 6px 4px;
+        font-size: 11px;
+        min-width: 0;
     }
 }
