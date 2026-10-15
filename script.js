@@ -37,8 +37,29 @@ function fitHeight() {
     const style = getComputedStyle(container);
     const extra = parseFloat(style.paddingTop) + parseFloat(style.paddingBottom)
         + parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
+
+    // Shrink the timeline so only it scrolls, not the whole container
+    const timeline = activeSection.querySelector('.timeline');
+    if (timeline) {
+        timeline.style.maxHeight = '';
+        const overflow = activeSection.offsetHeight + extra - availableHeight();
+        if (overflow > 0) {
+            timeline.style.maxHeight = `${Math.max(120, timeline.clientHeight - overflow)}px`;
+        }
+    }
+
     container.style.height = `${activeSection.offsetHeight + extra}px`;
 }
+
+// Space left for the container below the navbar
+function availableHeight() {
+    const body = getComputedStyle(document.body);
+    return document.body.clientHeight
+        - parseFloat(body.paddingTop) - parseFloat(body.paddingBottom)
+        - document.querySelector('.navbar').offsetHeight - parseFloat(body.rowGap);
+}
+
+window.addEventListener('resize', fitHeight);
 
 // Refit when content reflows (window resize, fonts or images loading)
 document.querySelectorAll('.content-section').forEach(section => {

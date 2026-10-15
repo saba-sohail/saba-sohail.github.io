@@ -199,6 +199,28 @@ strong {
     font-size: 28px;
 }
 
+.section-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    margin-bottom: 16px;
+}
+
+.content-section .section-heading h1 {
+    margin-bottom: 0;
+    line-height: 1;
+    text-box: trim-both cap alphabetic;
+}
+
+.section-caption {
+    color: #666;
+    font-size: 14px;
+    margin-left: auto;
+    line-height: 1;
+    text-box: trim-both cap alphabetic;
+}
+
 .content-section p {
     color: #666;
     line-height: 1.7;
@@ -382,6 +404,32 @@ strong {
     border-radius: 999px;
 }
 
+/* Certifications, pinned to the right of a section heading */
+.certs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    margin: 0 0 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.content-section .cert {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+    color: #666;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.cert::before {
+    content: "\2713";
+    color: #7cb342;
+    font-weight: bold;
+}
+
 .badge {
     display: inline-block;
     margin-top: 10px;
@@ -477,6 +525,12 @@ strong {
     .header-container h3 {
         line-height: 1.35;
         text-box: none;
+    }
+
+    /* Stack certs under the heading instead of breaking them mid-name */
+    .certs {
+        flex-direction: column;
+        align-items: flex-end;
     }
 }
 
