@@ -1,4 +1,6 @@
 const container = document.querySelector('.main-container');
+// Matches the CSS breakpoint where the nav is hidden and all sections stack
+const phone = window.matchMedia('(max-width: 480px)');
 let resizeTimer;
 
 document.querySelectorAll('.nav-btn').forEach(button => {
@@ -8,6 +10,19 @@ document.querySelectorAll('.nav-btn').forEach(button => {
 
         document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
+    });
+});
+
+// In-text links to a section: switch tabs on desktop, scroll down to it on phones
+document.querySelectorAll('.section-link').forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const sectionId = link.getAttribute('href').slice(1);
+        if (phone.matches) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        } else {
+            document.querySelector(`.nav-btn[data-section="${sectionId}"]`).click();
+        }
     });
 });
 
@@ -42,6 +57,15 @@ function fitHeight() {
     const timeline = activeSection.querySelector('.timeline');
     if (timeline) {
         timeline.style.maxHeight = '';
+    }
+
+    // Phones stack every section and scroll the page, so there's nothing to fit
+    if (phone.matches) {
+        container.style.height = '';
+        return;
+    }
+
+    if (timeline) {
         const overflow = activeSection.offsetHeight + extra - availableHeight();
         if (overflow > 0) {
             timeline.style.maxHeight = `${Math.max(120, timeline.clientHeight - overflow)}px`;
@@ -88,3 +112,38 @@ const categories = [...new Set([...projects].map(p => p.querySelector('.category
     });
     projectFilters.appendChild(btn);
 });
+
+// Phones: experience cards collapse to title + dates, tap to show details
+const jobs = document.querySelectorAll('.timeline .job');
+
+function setupJobToggles() {
+    jobs.forEach(job => {
+        if (phone.matches) {
+            job.setAttribute('role', 'button');
+            job.setAttribute('tabindex', '0');
+            job.setAttribute('aria-expanded', job.classList.contains('open'));
+        } else {
+            job.removeAttribute('role');
+            job.removeAttribute('tabindex');
+            job.removeAttribute('aria-expanded');
+        }
+    });
+}
+
+jobs.forEach(job => {
+    const toggle = () => {
+        if (!phone.matches) return;
+        job.classList.toggle('open');
+        job.setAttribute('aria-expanded', job.classList.contains('open'));
+    };
+    job.addEventListener('click', toggle);
+    job.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggle();
+        }
+    });
+});
+
+phone.addEventListener('change', setupJobToggles);
+setupJobToggles();

@@ -343,6 +343,19 @@ strong {
     border-color: #56802a;
 }
 
+/* In-text link to another section (e.g. Home -> Contact) */
+.section-link {
+    color: #56802a;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid #c0e0a0;
+    transition: border-color 0.2s ease;
+}
+
+.section-link:hover {
+    border-color: #56802a;
+}
+
 .category {
     display: block;
     margin-bottom: 4px;
@@ -500,19 +513,75 @@ strong {
 }
 
 @media (max-width: 480px) {
+    /* Phones: no nav, every section is its own card and the page scrolls */
     body {
         padding: 8px;
-        gap: 8px;
+        height: auto;
+        min-height: 100dvh;
+        overflow: visible;
+        justify-content: flex-start;
     }
 
-    .nav-btn {
-        padding: 6px 8px;
-        font-size: 12px;
-        min-width: 50px;
+    .navbar {
+        display: none;
     }
 
     .main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 0;
+        overflow: visible;
+        background-color: transparent;
+        border: none;
+    }
+
+    .content-section,
+    .content-section.active {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+        max-height: none;
+        overflow: visible;
+        transition: none;
+        background-color: white;
+        border: 2px solid #c0e0a0;
+        border-radius: 8px;
         padding: 12px;
+    }
+
+    .timeline {
+        max-height: none;
+    }
+
+    /* Experience cards collapse to title + dates; tap to expand (see script.js) */
+    .timeline .job {
+        cursor: pointer;
+        padding-right: 36px;
+    }
+
+    .timeline .job::after {
+        content: "";
+        position: absolute;
+        right: 16px;
+        top: 18px;
+        width: 8px;
+        height: 8px;
+        border-right: 2px solid #7cb342;
+        border-bottom: 2px solid #7cb342;
+        transform: rotate(45deg);
+        transition: transform 0.2s ease;
+    }
+
+    .timeline .job.open::after {
+        top: 22px;
+        transform: rotate(-135deg);
+    }
+
+    .timeline .job:not(.open) .job-points,
+    .timeline .job:not(.open) .job-tags {
+        display: none;
     }
 
     .content-section h1 {
@@ -520,7 +589,7 @@ strong {
     }
 }
 
-/* Small phones: give the wrapped subtitle line spacing and keep nav labels apart */
+/* Small phones: give the wrapped subtitle line spacing */
 @media (max-width: 480px) {
     .header-container h3 {
         line-height: 1.35;
@@ -531,17 +600,5 @@ strong {
     .certs {
         flex-direction: column;
         align-items: flex-end;
-    }
-}
-
-@media (max-width: 380px) {
-    .navbar {
-        gap: 4px;
-    }
-
-    .nav-btn {
-        padding: 6px 4px;
-        font-size: 11px;
-        min-width: 0;
     }
 }
